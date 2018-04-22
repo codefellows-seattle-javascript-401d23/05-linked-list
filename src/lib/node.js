@@ -5,4 +5,4 @@ module.exports = class Node {
     this.value = value;
     this.next = null;
   }
-}
+};
