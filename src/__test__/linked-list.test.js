@@ -1,6 +1,6 @@
 'use strict';
 
-const linkedList = require('../lib/linked-list');
+const LinkedList = require('../lib/linked-list');
 
 describe('linked-list.js', () => {
   test('#constructor', () => {
@@ -11,5 +11,9 @@ describe('linked-list.js', () => {
     const testList = new LinkedList();
     testList.insertAtEnd(5);
     expect(testList.head.value).toEqual(5);
+
+    testList.insertAtEnd(10);
+    expect(testList.head.value).toEqual(5);
+    expect(testList.head.next.value).toEqual(10);
   });
 });
