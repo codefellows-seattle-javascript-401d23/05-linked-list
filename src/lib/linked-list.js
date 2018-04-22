@@ -7,11 +7,12 @@ logger.log(logger.INFO, 'Im testing linked list');
 module.exports = class LinkedList {
   constructor() {
     this.head = null;
+    // this.tail = null;
+    // this.length = '';
   }
 
   insertAtHead(value) {
     const node = new Node(value);
-
     node.next = this.head;
     this.head = node;
     return this;
@@ -31,6 +32,20 @@ module.exports = class LinkedList {
     currentNode.next = node;
     return this;
   }
+
+  removeAtEnd() {
+    if (!this.head) return null;
+    let currentNode = this.head;
+    // let previousNode;
+    while (currentNode.next) {
+      // previousNode = currentNode;
+      // currentNode = currentNode.next;
+      currentNode = null;
+      currentNode.next = null;
+    }
+    return this;
+  }
+
 
   find(value) {
     if (!this.head) {
