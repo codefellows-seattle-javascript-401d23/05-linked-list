@@ -55,4 +55,15 @@ module.exports = class LinkedList {
     return null;
   }
 
+  // linkedListPop(value) {
+  //
+  //   if(!this.head) {
+  //     throw new Error('__ERROR__ The list is empty');
+  //   }
+  //
+  //   let currentNode = this.head;
+  //   while (curretNode.next)
+  //
+  //   }
+  // }
 };
