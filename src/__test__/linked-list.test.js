@@ -10,19 +10,44 @@ const removeList = new LinkedList();
 removeList.createNewListItem(2);
 removeList.createNewListItem(1);
 
+const longList = new LinkedList();
+longList.createNewListItem(1);
+longList.createNewListItem(2);
+longList.createNewListItem(3);
+longList.createNewListItem(4);
+longList.createNewListItem(5);
+
 const emptyList = new LinkedList();
 
-// const testList = {
-//   head: {
-//     value: 1,
-//     next: {
-//       value: 2,
-//       next: null,
-//     },
-//   },
-// };
+const longTest = {
+  head: {
+    value: 1,
+    next: {
+      value: 2,
+      next: {
+        value: 4,
+        next: null,
+      },
+    },
+  },
+};
 
-// STILL NEED THIS ONE ---
+const longPop = {
+  head: {
+    value: 1,
+    next: {
+      value: 2,
+      next: {
+        value: 3,
+        next: {
+          value: 4,
+          next: null,
+        },
+      },
+    },
+  },
+};
+
 const testPop1 = {
   head: {
     value: 1,
@@ -77,6 +102,9 @@ describe('testing pop', () => {
   test('should empty list', () => {
     expect(popList.pop()).toEqual(emptyList);
   });
+  test('should remove last item from long list', () => {
+    expect(longList.pop()).toEqual(longPop);
+  });
   test('should err out for empty list', () => {
     expect(() => { emptyList.pop(); }).toThrow('Cannot remove item from empty list');
   });
@@ -87,7 +115,7 @@ describe('testing remove', () => {
     expect(removeList.remove(2)).toEqual(testPop1);
   });
   test('should empty list', () => {
-    expect(removeList.remove(1)).toEqual(emptyList);
+    expect(longList.remove(3)).toEqual(longTest);
   });
   test('should err out for empty list', () => {
     expect(() => { emptyList.remove(1); }).toThrow('Cannot remove item from empty list');
