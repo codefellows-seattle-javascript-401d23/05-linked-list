@@ -1,6 +1,6 @@
 'use strict';
 
-// const Node = require('./node');
+const Node = require('./node');
 
 module.exports = class LinkedList {
   constructor() {
@@ -11,8 +11,6 @@ module.exports = class LinkedList {
   // Big O = O(n)
   pop() {
     if (!this.head) return null;
-    if (!this.head.next) return null;
-
     let currentNode = this.head;
 
     while (currentNode.next.next !== null) {
@@ -31,11 +29,6 @@ module.exports = class LinkedList {
       this.head = this.head.next;
     }
 
-    // I did this keeping track of two nodes, but does it work keeping
-    // track of just one? Just looking at the currentNode.next.value?
-    // Once I find that the currentNode.next.value === value,
-    // could I simply reassign currentNode.next = currentNode.next.next?
-
     let previousNode = this.head;
     let currentNode = this.head.next;
 
@@ -47,6 +40,7 @@ module.exports = class LinkedList {
       previousNode = currentNode;
       currentNode = currentNode.next;
     }
+
     return this;
   }
 
@@ -55,13 +49,36 @@ module.exports = class LinkedList {
   map(callback) {
     if (!this.head) return null;
     let currentNode = this.head;
-
-    while (currentNode.next) {
-      callback(currentNode.value);
+    
+    while (currentNode) {
+      currentNode.value = callback(currentNode.value);
       currentNode = currentNode.next;
     }
-    // invoking callback once more for the tail value
-    callback(currentNode.value);
+
+    return this;
+  }
+
+  insertAtHead(value) {
+    const node = new Node(value);
+
+    node.next = this.head;
+    this.head = node;
+    return this;
+  }
+
+  insertAtEnd(value) {
+    const node = new Node(value);
+    if (!this.head) {
+      this.head = node;
+      return this;
+    }
+    
+    let currentNode = this.head;
+    while (currentNode.next) {
+      currentNode = currentNode.next;
+    }
+
+    currentNode.next = node;
     return this;
   }
 };
