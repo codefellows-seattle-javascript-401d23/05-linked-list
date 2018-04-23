@@ -14,6 +14,7 @@ module.exports = class LinkedList {
     this.head = node;
     return this;
   }
+//I have test done on this one!
 
   insertAtEnd(value) {
     const node = new Node(value);
@@ -31,27 +32,38 @@ module.exports = class LinkedList {
     currentNode.next = node;
     // this is what sets our new value.
     return this;
-  };
-
   }
+  //I have a test on this one!
 
   find(value) {
     if (!this.head) {
       throw new Error('__ERROR__ The list is empty');
     }
-
+//No list it will throw an error
     if (this.head.value === value) {
-      return this.head;
+      return this.head.value;
     }
-
+    //if the head is the value we are looking for the # will stop.
     let currentNode = this.head;
     while (currentNode.next) {
       if (currentNode.next.value === value) {
-        return currentNode.next;
+        return currentNode.next.value;
       }
-    currentNode = currentNode.next;
+      // the while loop will run until it finds the value
+      currentNode = currentNode.next;
     }
-  return null;
+    return null;
   }
-}
 
+  // linkedListPop(value) {
+  //
+  //   if(!this.head) {
+  //     throw new Error('__ERROR__ The list is empty');
+  //   }
+  //
+  //   let currentNode = this.head;
+  //   while (currentNode.next)
+  //
+  //   }
+  // }
+};

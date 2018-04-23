@@ -28,7 +28,7 @@
 - [ ] provide instruction on installing and using data structure
 - [ ] accessing each method
 Feature tasks
-- [ ] implement LinkedList Class
+- [x] implement LinkedList Class
 - [ ] implement pop() prototype
 - [ ] implement remove(value) on prototype
 - [ ] implement map() as a pure method on the List prototype
