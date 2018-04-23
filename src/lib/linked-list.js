@@ -41,7 +41,7 @@ module.exports = class LinkedList {
     }
 //No list it will throw an error
     if (this.head.value === value) {
-         return this.head.value;
+      return this.head.value;
     }
     //if the head is the value we are looking for the # will stop.
     let currentNode = this.head;
@@ -62,7 +62,7 @@ module.exports = class LinkedList {
   //   }
   //
   //   let currentNode = this.head;
-  //   while (curretNode.next)
+  //   while (currentNode.next)
   //
   //   }
   // }

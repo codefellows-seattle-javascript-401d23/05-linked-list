@@ -29,6 +29,6 @@ describe('linked-list.js', () => {
     testList.insertAtHead(5);
     testList.insertAtHead(55);
     testList.insertAtEnd(99);
-    expect(testList.find(5)).toEqual(5)
-  })
+    expect(testList.find(5)).toEqual(5);
+  });
 });
