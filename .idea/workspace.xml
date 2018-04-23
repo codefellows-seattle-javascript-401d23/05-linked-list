@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0d9ffbb-f187-4acf-b934-c96eaa893f0f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/__test__/linked-list.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/__test__/linked-list.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/linked-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/linked-list.js" afterDir="false" />
-    </list>
+    <list default="true" id="b0d9ffbb-f187-4acf-b934-c96eaa893f0f" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -241,7 +238,7 @@
       <option name="presentableId" value="Default" />
       <updated>1524430633736</updated>
       <workItem from="1524430639399" duration="2719000" />
-      <workItem from="1524433526453" duration="13173000" />
+      <workItem from="1524433526453" duration="13430000" />
     </task>
     <servers />
   </component>
@@ -254,7 +251,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15892000" />
+    <option name="totallyTimeSpent" value="16149000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1173" height="777" extended-state="0" />
