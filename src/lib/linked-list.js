@@ -4,7 +4,7 @@ const Node = require('./node');
 
 module.exports = class LinkedList {
   constructor() {
-    this.head = null
+    this.head = null;
   }
 
   insertAtHead(value) {
@@ -24,10 +24,15 @@ module.exports = class LinkedList {
     }
     let currentNode = this.head;
     while (currentNode.next) {
+      //Josh the While loop makes sure that there is a .next
       currentNode = currentNode.next;
+      // the above line is what actually moves from one node to another.
     }
     currentNode.next = node;
+    // this is what sets our new value.
     return this;
+  };
+
   }
 
   find(value) {
@@ -39,7 +44,14 @@ module.exports = class LinkedList {
       return this.head;
     }
 
-
+    let currentNode = this.head;
+    while (currentNode.next) {
+      if (currentNode.next.value === value) {
+        return currentNode.next;
+      }
+    currentNode = currentNode.next;
+    }
+  return null;
   }
-
 }
+
