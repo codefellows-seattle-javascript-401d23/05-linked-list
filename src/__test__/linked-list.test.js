@@ -24,7 +24,7 @@ describe('linked-list.js', () => {
     expect(testList.head.next.next.value).toEqual(5);
   });
 
-  test('#insertAtEnd should remove inserted value at the tail of LinkedList', () => {
+  test('#insertAtEnd should insert value at the tail of LinkedList', () => {
     const testList = new LinkedList();
     testList.insertAtEnd(5);
     expect(testList.head.value).toEqual(5);
@@ -76,24 +76,38 @@ describe('linked-list.js', () => {
   test('#pop should remove and delete the last node in a LinkedList array', () => {
     const testList = new LinkedList();
     testList.insertAtEnd(5);
-    expect(testList.head.value).toEqual(5);
-
     testList.insertAtEnd(6);
-    expect(testList.head.value).toEqual(5);
-    expect(testList.head.next.value).toEqual(6);
-
     testList.insertAtEnd(7);
-    expect(testList.head.value).toEqual(5);
-    expect(testList.head.next.value).toEqual(6);
-    expect(testList.head.next.next.value).toEqual(7);
+    testList.insertAtEnd(8);
     
     testList.pop();
-    expect(testList.head.next.value).toEqual(6);
+    expect(testList.head.next.next.value).toEqual(7);
+    expect(testList.tail.value).toEqual(null);
   });
 
   test('#pop should return null because the list is empty', () => {
     const testList = new LinkedList();
     testList.pop();
     expect(testList.pop()).toBeNull();
+  });
+
+  test('#map should list through array and return a callback of each node in the array', () => {
+    const testList = new LinkedList();
+    const callback = x => x / 2;
+    
+    testList.insertAtEnd(6);
+    testList.insertAtEnd(8);
+    testList.insertAtEnd(12);
+
+    testList.map(callback);
+    expect(testList.head.value).toEqual(3);
+    expect(testList.head.next.value).toEqual(4);
+    expect(testList.head.next.next.value).toEqual(6);
+  });
+
+  test('#map should return null because the list is empty', () => {
+    const testList = new LinkedList();
+    testList.map();
+    expect(testList.map()).toBeNull();
   });
 });

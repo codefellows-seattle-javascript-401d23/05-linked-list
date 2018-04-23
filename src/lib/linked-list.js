@@ -8,7 +8,8 @@ module.exports = class LinkedList {
     this.head = null;
     this.tail = null;
   }
-
+  
+  // Big O - o(1)
   insertAtHead(value) {
     const node = new Node(value);
 
@@ -17,6 +18,7 @@ module.exports = class LinkedList {
     return this;
   }
 
+  // Big O - o(1)
   insertAtEnd(value) {
     const node = new Node(value);
 
@@ -32,9 +34,11 @@ module.exports = class LinkedList {
     return this;
   }
 
+  // Big O - o(n)
   find(value) {
     if (!this.head) {
       logger.log(logger.INFO, '#find Linked List array is empty. Could not find value.');
+      return null;
     }
 
     if (this.head.value === value) {
@@ -51,14 +55,39 @@ module.exports = class LinkedList {
     return null;
   }
 
+  // Big O - o(n)
+  map(callback) {
+    if (!this.head) {
+      logger.log(logger.INFO, '#method Array is empty. Could not find value.');
+      return null;
+    }
+    let currentNode = this.head;
+
+    while (currentNode) {
+      currentNode.value = callback(currentNode.value);
+      currentNode = currentNode.next;
+    }
+
+    return this;
+  }
+
+  // Big O - o(n)
   pop() {
     if (!this.head) {
       logger.log(logger.INFO, '#pop Linked List array is empty. Could not find value.');
       return null;
     }
-    return undefined;
+    let currentNode = this.head;
+
+    while (currentNode.next.next !== null) {
+      currentNode = currentNode.next;
+    }
+    currentNode = null;
+
+    return this;
   }
   
+  // big O - o(n)
   remove(value) {
     if (!this.head) {
       logger.log(logger.INFO, '#remove Linked List array is empty. Could not find value.');
