@@ -1,0 +1,33 @@
+{
+  "name": "05-linked-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "start":  "node src/lib/linked-list.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vibecastor/05-linked-list.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vibecastor/05-linked-list/issues"
+  },
+  "homepage": "https://github.com/vibecastor/05-linked-list#readme",
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jest": "^21.15.1",
+    "jest": "^22.4.3"
+  },
+  "dependencies": {
+    "eslint": "^4.19.1"
+  }
+}
