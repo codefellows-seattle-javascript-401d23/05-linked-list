@@ -1,4 +1,4 @@
-##Functional-Programming
+##Linked List
 - Author: Mike Castor
 
 ##Overview
