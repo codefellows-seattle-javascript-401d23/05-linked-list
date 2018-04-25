@@ -1,7 +1,6 @@
 'use strict';
 
 const Node = require('./node');
-const NodeTwo = require('./node-two');
 
 module.exports = class LinkedList {
   constructor() {
@@ -81,24 +80,14 @@ module.exports = class LinkedList {
   }
 
   // Big O: O(n)
-  double(value) {
-    const node = new Node(value);
-    const newNode = new NodeTwo(value);
-
-    if (!this.head) {
-      this.head = node;
-      return this;
-    }
-    // Lacy: Attempting to take in the node value, multiply it by 2 and then assign 
-    // the new value to the variable newNode which would push into a new constructor NodeTwo,
-    // which would "map" and "double" the original constructor
+  map(callback) {
+    const newList = new LinkedList();
     let currentNode = this.head;
-    while (currentNode.next) {
-      currentNode.value *= 2;
+
+    while (currentNode) {
+      newList.insertAtEnd(callback(currentNode));
       currentNode = currentNode.next;
     }
-
-    currentNode.next = newNode;
-    return this;
+    return newList;
   }
 };
