@@ -24,27 +24,36 @@ describe('linked-list.js', () => {
   });
 
 
-  test('#insertAtEnd', () => {
+  test('#append', () => {
     const testList = new LinkedList();
-    testList.insertAtEnd(5);
+    testList.append(5);
     expect(testList.head.value).toEqual(5);
 
-    testList.insertAtEnd(6);
+    testList.append(6);
     expect(testList.head.value).toEqual(5);
     expect(testList.head.next.value).toEqual(6);
 
-    testList.insertAtEnd(7);
+    testList.append(7);
     expect(testList.head.value).toEqual(5);
     expect(testList.head.next.value).toEqual(6);
     expect(testList.head.next.next.value).toEqual(7);
   });
   test('#find', () => {
     const testList = new LinkedList();
-    testList.insertAtEnd(5);
-    testList.insertAtEnd(6);
-    testList.insertAtEnd(7);
+    testList.append(5);
+    testList.append(6);
+    testList.append(7);
 
     expect(testList.find(5)).toBeInstanceOf(Node);
     expect(testList.find(9)).toBeNull();
+  });
+  test('#popLastNode()', () => {
+    const testList = new LinkedList();
+    testList.append(1);
+    testList.append(2);
+    testList.append(3);
+    testList.append(4);
+    testList.append(5);
+    expect(testList.popLastNode()).toEqual(5);
   });
 });

@@ -4,7 +4,7 @@ const Node = require('./node');
 
 module.exports = class LinkedList {
   constructor() {
-    this.head = null;
+    this.head = null; // points at the head...
   }
   insertAtHead(value) {
     const node = new Node(value);
@@ -12,7 +12,7 @@ module.exports = class LinkedList {
     this.head = node;
     return this;
   }
-  insertAtEnd(value) {
+  append(value) {
     const node = new Node(value);
     if (!this.head) {
       this.head = node;
@@ -46,4 +46,30 @@ module.exports = class LinkedList {
     }
     return null;
   }
+  popLastNode() {
+    let currentNode = this.head;
+    if (!this.head) {
+      return null;
+    }
+    if (!currentNode.next) {
+      currentNode = null;
+      return currentNode;
+    }
+    while (currentNode.next) {
+      if (!currentNode.next.next) {
+        const { value } = currentNode.next;
+        currentNode.next = null;
+        console.log('this value', value);
+        return value;
+      }
+      currentNode = currentNode.next;
+    }
+  }
 };
+
+// while (currentNode.next.next) {
+//   currentNode = currentNode.next;
+// }
+// const temp = currentNode.next;
+// currentNode.next = null;
+// return temp;
