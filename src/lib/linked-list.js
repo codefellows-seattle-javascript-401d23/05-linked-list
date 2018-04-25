@@ -59,11 +59,14 @@ module.exports = class LinkedList {
       if (!currentNode.next.next) {
         const { value } = currentNode.next;
         currentNode.next = null;
-        console.log('this value', value);
+        // console.log('this value', value);
         return value;
       }
       currentNode = currentNode.next;
     }
+  }
+  reduceNodes() {
+    
   }
 };
 
