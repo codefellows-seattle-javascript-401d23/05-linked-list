@@ -68,21 +68,40 @@ describe('linked-list.js', () => {
     expect(testList.remove(7)).toEqual(testList);
   });
 
-  it('#double', () => {
+  it('#map', () => {
     const testList = new LinkedList();
-    const testListTwo = new LinkedList();
-
-    // This is returning "cannot read property 'value' of null"
     testList.insertAtEnd(5);
-    expect(testListTwo.head.value.double(5)).toEqual(10);
-
     testList.insertAtEnd(6);
-    expect(testListTwo.head.value.double(6)).toEqual(12);
-    expect(testListTwo.head.next.value.double(5)).toEqual(10);
-
     testList.insertAtEnd(7);
-    expect(testListTwo.head.value.double(7)).toEqual(14);
-    expect(testListTwo.head.next.value.double(6)).toEqual(12);
-    expect(testListTwo.head.next.next.value.double(5)).toEqual(10);
+
+    const testListTwo = new LinkedList();
+    testListTwo.insertAtEnd(10);
+    testListTwo.insertAtEnd(12);
+    testListTwo.insertAtEnd(14);
+
+    expect(testList.map((node) => {
+      node.value *= 2;
+      return node.value;
+    })).toMatchObject(testListTwo);
+
+    const testListThree = new LinkedList();
+    testListTwo.insertAtEnd(7);
+    testListTwo.insertAtEnd(8);
+    testListTwo.insertAtEnd(9);
+
+    expect(testList.map((node) => {
+      node.value += 2;
+      return node.value;
+    })).toMatchObject(testListThree);
+
+    const testListFour = new LinkedList();
+    testListTwo.insertAtEnd(3);
+    testListTwo.insertAtEnd(4);
+    testListTwo.insertAtEnd(5);
+
+    expect(testList.map((node) => {
+      node.value -= 2;
+      return node.value;
+    })).toMatchObject(testListFour);
   });
 });
