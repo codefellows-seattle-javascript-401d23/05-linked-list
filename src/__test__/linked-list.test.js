@@ -82,7 +82,7 @@ describe('linked-list.js', () => {
     
     testList.pop();
     expect(testList.head.next.next.value).toEqual(7);
-    expect(testList.tail.value).toEqual(null);
+    expect(testList.head.next.next.next).toBeNull();
   });
 
   test('#pop should return null because the list is empty', () => {

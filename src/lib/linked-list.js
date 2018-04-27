@@ -73,18 +73,22 @@ module.exports = class LinkedList {
 
   // Big O - o(n)
   pop() {
+    let currentNode = this.head;
     if (!this.head) {
-      logger.log(logger.INFO, '#pop Linked List array is empty. Could not find value.');
       return null;
     }
-    let currentNode = this.head;
-
-    while (currentNode.next.next !== null) {
+    if (!currentNode.next) {
+      currentNode = null;
+      return currentNode;
+    }
+    while (currentNode.next) {
+      if (!currentNode.next.next) {
+        currentNode.next = null;
+        return null;
+      }
       currentNode = currentNode.next;
     }
-    currentNode = null;
-
-    return this;
+    return null;
   }
   
   // big O - o(n)
