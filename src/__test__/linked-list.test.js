@@ -69,4 +69,15 @@ describe('linked-list.js', () => {
     expect(testList.find(9)).toBeNull();
     expect(testList.find(10)).toBeNull();
   });
+  test('#map', () => {
+    const testList = new LinkedList();
+    const callback = x => x - 1;
+    testList.insertAtEnd(5);
+    testList.insertAtEnd(6);
+    testList.insertAtEnd(7);
+    testList.map(callback);
+    expect(testList.head.value).toEqual(4);
+    expect(testList.head.next.value).toEqual(5);
+    expect(testList.head.next.next.value).toEqual(6);
+  });
 });
