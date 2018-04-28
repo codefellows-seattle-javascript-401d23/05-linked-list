@@ -56,4 +56,24 @@ describe('linked-list.js', () => {
     testList.append(5);
     expect(testList.popLastNode()).toEqual(5);
   });
+  test('#map()', () => {
+    const testList = new LinkedList();
+    testList.append(1);
+    testList.append(2);
+    testList.append(3);
+    const newList = testList.map((node) => {
+      node.value += 1;
+      return node;
+    });
+    expect(newList.head.value).toBe(2);
+    expect(newList.head.next.value).toBe(3);
+  });
+  test('#removeNode()', () => {
+    const testList = new LinkedList();
+    testList.append(1);
+    testList.append(2);
+    testList.append(3);
+    expect(testList.remove(2)).toEqual(2);
+  });
 });
+
