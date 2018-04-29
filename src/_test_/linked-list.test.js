@@ -75,14 +75,6 @@ describe('linked-list.js', () => {
     expect(testList.head.next.value).toEqual(7);
   });
 
-  // test('#reduceSum', () => {
-  //   const testList = new LinkedList();
-  //   testList.insertAtEnd(5);
-  //   testList.insertAtEnd(6);
-  //   testList.insertAtEnd(7);
-  //   expect(testList.reduceSum.value).toEqual(18);
-  // });
-
   test('#find', () => {
     const testList = new LinkedList();
     testList.insertAtEnd(5);
@@ -99,4 +91,20 @@ describe('linked-list.js', () => {
     expect(testList.find(5)).toBeInstanceOf(Node);
     expect(testList.find(9)).toBeNull();
   });
+  test('#mapList', () => {
+    const testList = new LinkedList();
+    const newList = new LinkedList();
+    testList.insertAtEnd(5);
+    expect(testList.head.value).toEqual(5);
+
+    testList.insertAtEnd(6);
+    expect(testList.head.value).toEqual(5);
+    expect(testList.head.next.value).toEqual(6);
+
+    testList.mapList(newList);
+    expect(newList.head.value).toEqual(5);
+    expect(newList.head.next.value).toEqual(6);
+    expect(newList.find(5)).toBeInstanceOf(Node);
+  });
 });
+

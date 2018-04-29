@@ -11,6 +11,36 @@ module.exports = class LinkedList {
     this.length = '';
   }
 
+  // mapList(callback) {
+  //   let currentNode = this.head;
+  //   if (!this.head) {
+  //     throw new Error('Head does not exist');
+  //   }
+  //   const newList = new LinkedList();
+  //   while (currentNode) {
+  //     newList.insertAtEnd(currentNode.value);
+  //     currentNode = currentNode.next;
+  //   }
+  //   let newCurrentNode = newList.head;
+  //   while (newCurrentNode) {
+  //     callback(newCurrentNode);
+  //     newCurrentNode = newCurrentNode.next;
+  //   }
+  //
+  //   return newList;
+  // }
+  mapList(newList) {
+    let currentNode = this.head;
+    if (!this.head) {
+      throw new Error('Head does not exist');
+    }
+    while (currentNode) {
+      newList.insertAtEnd(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    return newList;
+  }
+
   insertAtHead(value) {
     const node = new Node(value);
     node.next = this.head;
@@ -69,16 +99,6 @@ module.exports = class LinkedList {
     this.length = this.length - 1; // unable to use --
     return this;
   }
-
-  // reduceSum() {
-  //   if (!this.head) return null;
-  //   let currentNode = this.head;
-  //   while (currentNode.next) {
-  //     currentNode = currentNode.next;
-  //   }
-  //   console.log(this);
-  //   return this.reduce((total, sum) => total + sum, 0);
-  // }
 
   find(value) {
     if (!this.head) {
