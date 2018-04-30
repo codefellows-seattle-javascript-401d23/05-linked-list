@@ -34,7 +34,7 @@
 
 #### Feature Tasks  
   <!-- * implement a `LinkedList` class -->
-  * implement a `pop()` on the List prototype
+  <!-- * implement a `pop()` on the List prototype -->
 	<!-- * implement a `remove(value)` on the prototype -->
   * implement `map()` _or_ `reduce()` as pure methods on the List prototype
   * in comments above or within each function, note the Big-O runtime

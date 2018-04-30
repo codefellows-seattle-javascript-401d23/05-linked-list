@@ -33,6 +33,10 @@ module.exports = class LinkedList {
     return this;
   }
 
+  popOffTop() {
+    this.head = this.head.next;
+    return this;
+  }
   // time: 0(n) because of while space: 0(1)
   find(value) {
     if (!this.head) {
@@ -53,19 +57,3 @@ module.exports = class LinkedList {
     return null;
   }
 
-  // time: 0(1) space: 0(1)
-  removeValue(value) {
-    const removeNode = this.find(value);
-
-    if (removeNode === null) {
-      return;
-    }
-
-    if (removeNode.previousNode === null) {
-      this.head = removeNode.currentNode.next;
-      return;
-    }
-
-    removeNode.previousNode.next = removeNode.currentNode.next;
-  }
-};
