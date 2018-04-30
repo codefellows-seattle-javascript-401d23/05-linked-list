@@ -58,6 +58,47 @@ describe('Should validate Linked List functionality', () => {
     expect(compare()).toBe(true);
   });
 
+  test('#map', () => {
+    const testLinkedList = new LinkedList();
+    testLinkedList.insertAtEnd(1);
+    testLinkedList.insertAtEnd(2);
+    testLinkedList.insertAtEnd(3);
+    testLinkedList.insertAtEnd(4);
+
+    const testLinkedList2 = new LinkedList();
+    testLinkedList2.insertAtEnd(2);
+    testLinkedList2.insertAtEnd(3);
+    testLinkedList2.insertAtEnd(4);
+    testLinkedList2.insertAtEnd(5);
+
+    const testLinkedList3 = new LinkedList();
+    testLinkedList3.insertAtEnd(2);
+    testLinkedList3.insertAtEnd(4);
+    testLinkedList3.insertAtEnd(6);
+    testLinkedList3.insertAtEnd(8);
+
+    const testLinkedList4 = new LinkedList();
+    testLinkedList4.insertAtEnd(1);
+    testLinkedList4.insertAtEnd(4);
+    testLinkedList4.insertAtEnd(9);
+    testLinkedList4.insertAtEnd(16);
+    
+    expect(testLinkedList.mapValue((node) => {
+      node.value += 1;
+      return node.value;
+    })).toMatchObject(testLinkedList2);
+
+    expect(testLinkedList.mapValue((node) => {
+      node.value *= 2;
+      return node.value;
+    })).toMatchObject(testLinkedList3);
+
+    expect(testLinkedList.mapValue((node) => {
+      node.value *= node.value;
+      return node.value;
+    })).toMatchObject(testLinkedList4);
+  });
+
   test('#search', () => {
     const testLinkedList = new LinkedList();
     testLinkedList.insertAtEnd(50);

@@ -66,12 +66,13 @@ module.exports = class LinkedList {
     }
     return null;
   }
-  mapValue(value, callback) {
+  mapValue(callback) {
     let currentNode = this.head;
     const mapList = new LinkedList();
-    while (currentNode.next) {
-      mapList.insertAtEnd(callback(value));
+    while (currentNode) {
+      mapList.insertAtEnd(callback(currentNode));
       currentNode = currentNode.next;
     }
+    return mapList;
   }
 };
