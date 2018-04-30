@@ -95,7 +95,7 @@ module.exports = class LinkedList {
 
   map(callback) {
     let currentNode = this.head;
-    const newList = newLinkedList();
+    const newList = new LinkedList();
     while (currentNode) {
       newList.insertAtHead(currentNode.value);
       currentNode = currentNode.next;
