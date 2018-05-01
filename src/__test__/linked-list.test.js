@@ -47,20 +47,5 @@ describe('linked-list.js', () => {
     expect(testList.find(5)).toBeInstanceOf(Node);
     expect(testList.find(9)).toBeNull();
   });
-
-  test('#removeValue', () => {
-    const testList = new LinkedList();
-    testList.removeValue(5);
-    expect(testList.head.value).toEqual(5);
-
-    testList.removeValue(6);
-    expect(testList.head.value).toEqual(6);
-    expect(testList.head.next.value).toEqual(5);
-
-    testList.removeValue(7);
-    expect(testList.head.value).toEqual(7);
-    expect(testList.head.next.value).toEqual(6);
-    expect(testList.head.next.next.value).toEqual(5);
-  });
 });
 

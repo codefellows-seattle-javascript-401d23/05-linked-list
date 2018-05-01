@@ -57,3 +57,30 @@ module.exports = class LinkedList {
     return null;
   }
 
+  remove() {
+    const currentNode = this.head, count=0, previous;
+    if (this.length === 0) return;
+    if (index === 0) {
+      this.head = currentNode.next;
+      this.length--;
+    } else {
+      while (count < index-1) {
+        previous = currentNode;
+        currentNode = currentNode.next;
+        count ++;
+      }
+      previous.next = currentNode.next;
+      this.length--;
+
+      return this.head;
+    }
+  }
+
+
+  map(value) {
+    const node = new Node(value);
+
+
+    }
+  }
+
